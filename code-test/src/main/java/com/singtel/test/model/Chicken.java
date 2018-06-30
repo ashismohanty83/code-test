@@ -49,5 +49,11 @@ public class Chicken extends Bird {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Chicken [gender=" + gender + ", age=" + age + ", isChicken=" + isChicken + ", sing()=" + sing()
+				+ ", fly()=" + fly() + ", isChicken()=" + isChicken() + ", swim()=" + swim() + ", getName()="
+				+ getName() + ", walk()=" + walk() + "]";
+	}
 }

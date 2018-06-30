@@ -24,7 +24,13 @@ public class AnimalFactory {
 			return new Dog("DOG");
 		} else if (animalType.equalsIgnoreCase(AnimalType.CAT.name())) {
 			return new Cat("CAT");
-		}
+		} else if (animalType.equalsIgnoreCase(AnimalType.SHARK.name())) {
+			return new Shark("SHARK");
+		} else if (animalType.equalsIgnoreCase(AnimalType.CLOWNFISH.name())) {
+			return new Clownfish("CLOWNFISH");
+		} else if (animalType.equalsIgnoreCase(AnimalType.DOLPHIN.name())) {
+			return new Clownfish("DOLPHIN");
+		} 
 		
 		return null;
 	}

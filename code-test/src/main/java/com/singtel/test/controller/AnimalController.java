@@ -1,7 +1,5 @@
 package com.singtel.test.controller;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.singtel.test.model.AnimalDetails;
+import com.singtel.test.model.Animal;
 import com.singtel.test.service.AnimalService;
 
 @RestController
@@ -25,15 +22,17 @@ public class AnimalController {
 	public String getAnimalDetails(@RequestParam(value = "animalType", required=true) String animalType,
 			@RequestParam(value = "liveWith", required=false) String liveWithAnimal) throws Exception {
 		
-		AnimalDetails details = animalService.getAnimalDetails(animalType.toUpperCase(), liveWithAnimal);
+		Animal animal = animalService.getAnimalDetails(animalType.toUpperCase(), liveWithAnimal);
 		String jsonInString = "";
-		if (null != details) {
-			ObjectMapper mapper = new ObjectMapper();
+		if (null != animal) {
+			/*ObjectMapper mapper = new ObjectMapper();
 			//Object to JSON in String
-			jsonInString = mapper.writeValueAsString(details);
+			jsonInString = mapper.writeValueAsString(details);*/
+			
+			return animal.toString();
 		}
 		
-		return jsonInString;
+		return null;
 	}
 	
 	@RequestMapping(value = "/getChickenType/{animalType}", method = RequestMethod.GET,
@@ -42,15 +41,13 @@ public class AnimalController {
 			@RequestParam(value = "gender", required=true) String gender,
 			@RequestParam(value = "age", required=true) int age) throws Exception {
 		
-		AnimalDetails details = animalService.getChickenRooster(animalType, gender, age);
+		Animal animal = animalService.getChickenRooster(animalType, gender, age);
 		String jsonInString = "";
-		if (null != details) {
-			ObjectMapper mapper = new ObjectMapper();
-			//Object to JSON in String
-			jsonInString = mapper.writeValueAsString(details);
+		if (null != animal) {
+			return animal.toString();
 		}
 		
-		return jsonInString;
+		return null;
 	}
 
 }

@@ -22,4 +22,12 @@ public class Dog extends Animal {
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		return "Dog [sing()=" + sing() + ", fly()=" + fly() + ", swim()=" + swim() + ", getName()=" + getName()
+				+ ", walk()=" + walk() + "]";
+	}
+	
+	
+
 }

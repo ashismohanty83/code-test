@@ -21,4 +21,9 @@ public class Cat extends Animal {
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		return "Cat [sing()=" + sing() + ", fly()=" + fly() + ", swim()=" + swim() + ", getName()=" + getName()
+				+ ", walk()=" + walk() + "]";
+	}
 }

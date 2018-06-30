@@ -22,4 +22,12 @@ public class Duck extends Bird {
 		System.out.println("I can swim");
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Duck [sing()=" + sing() + ", fly()=" + fly() + ", swim()=" + swim() + ", getName()=" + getName()
+				+ ", walk()=" + walk()+ "]";
+	}
+	
+	
 }

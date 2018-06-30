@@ -61,4 +61,11 @@ public class Parrot extends Bird {
 	public void setAnimalLiveWith(Animal animalLiveWith) {
 		this.animalLiveWith = animalLiveWith;
 	}
+
+	@Override
+	public String toString() {
+		return "Parrot [frequentSound=" + frequentSound + ", sing()=" + sing()
+				+ ", fly()=" + fly() + ", swim()=" + swim() + ", getFrequentSound()=" + getFrequentSound()
+				+ ", getAnimalLiveWith()=" + getAnimalLiveWith() + ", getName()=" + getName() + ", walk()=" + walk() + "]";
+	}
 }
