@@ -7,6 +7,7 @@ public class AnimalDetails {
 	private String sing;
 	private boolean isSwim;
 	private boolean isFly;
+	private boolean isWalk;
 	
 	public AnimalDetails() {}
 	
@@ -46,5 +47,13 @@ public class AnimalDetails {
 		return "AnimalDetails [name=" + name + ", type=" + type + ", "
 				+ "sing=" + sing + ", isSwim=" + isSwim + ", isFly="
 				+ isFly + "]";
+	}
+
+	public boolean isWalk() {
+		return isWalk;
+	}
+
+	public void setWalk(boolean isWalk) {
+		this.isWalk = isWalk;
 	}
 }
