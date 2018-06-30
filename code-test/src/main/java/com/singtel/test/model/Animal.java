@@ -12,7 +12,7 @@ public abstract class Animal {
 		return name;
 	}
 
-	boolean walk() {
+	public boolean walk() {
 		System.out.println("I am walking");
 		return true;
 	}
