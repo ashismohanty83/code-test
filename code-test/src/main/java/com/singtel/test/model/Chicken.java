@@ -1,6 +1,6 @@
 package com.singtel.test.model;
 
-public class Chicken extends Bird implements Flyer {
+public class Chicken extends Bird {
 	
 	private String gender;
 	private int age;
@@ -20,6 +20,7 @@ public class Chicken extends Bird implements Flyer {
 		}
 	}
 	
+	@Override
 	public boolean fly() {
 		System.out.println("I can't fly because my windgs are clipped");
 		return false;
@@ -41,6 +42,12 @@ public class Chicken extends Bird implements Flyer {
 	
 	public boolean isChicken() {
 		return isChicken;
+	}
+
+	@Override
+	public boolean swim() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }

@@ -37,7 +37,7 @@ public class AnimalServiceImpl implements AnimalService {
 				details = new AnimalDetails();
 				details.setName(duck.getName());
 				details.setSing(duck.sing());
-				details.setSwim(duck.isSwim());
+				details.setSwim(duck.swim());
 			} else if (animal instanceof Chicken) {
 				Chicken chicken = (Chicken) animal;
 				details = new AnimalDetails();

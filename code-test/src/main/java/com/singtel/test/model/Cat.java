@@ -11,4 +11,14 @@ public class Cat extends Animal {
 		return "Meow";
 	}
 
+	@Override
+	public boolean fly() {
+		return false;
+	}
+
+	@Override
+	public boolean swim() {
+		return false;
+	}
+
 }

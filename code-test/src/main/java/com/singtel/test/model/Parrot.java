@@ -1,6 +1,6 @@
 package com.singtel.test.model;
 
-public class Parrot extends Bird implements Flyer {
+public class Parrot extends Bird {
 	
 	private String frequentSound = "";
 	private Animal animalLiveWith;
@@ -35,9 +35,15 @@ public class Parrot extends Bird implements Flyer {
 		return frequentSound.isEmpty() ? animalLiveWith.sing() : frequentSound;
 	}
 
+	@Override
 	public boolean fly() {
 		System.out.println("I can fly");
 		return true;
+	}
+	
+	@Override
+	public boolean swim() {
+		return false;
 	}
 
 	public String getFrequentSound() {

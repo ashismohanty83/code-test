@@ -12,4 +12,14 @@ public class Dog extends Animal {
 		return "Woof, woof";
 	}
 
+	@Override
+	public boolean fly() {
+		return false;
+	}
+
+	@Override
+	public boolean swim() {
+		return false;
+	}
+
 }

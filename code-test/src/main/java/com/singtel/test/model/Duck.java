@@ -1,6 +1,6 @@
 package com.singtel.test.model;
 
-public class Duck extends Bird implements Swimmer {
+public class Duck extends Bird {
 
 	public Duck(String name) {
 		super(name);
@@ -11,8 +11,14 @@ public class Duck extends Bird implements Swimmer {
 		System.out.println("Quack, quack");
 		return "Quack, quack";
 	}
-	
-	public boolean isSwim() {
+
+	@Override
+	public boolean fly() {
+		return false;
+	}
+
+	@Override
+	public boolean swim() {
 		System.out.println("I can swim");
 		return true;
 	}

@@ -17,5 +17,7 @@ public abstract class Animal {
 	}
 	
 	public abstract String sing();
+	public abstract boolean fly();
+	public abstract boolean swim();
 
 }
