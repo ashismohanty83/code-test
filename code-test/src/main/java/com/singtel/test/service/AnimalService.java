@@ -11,4 +11,6 @@ public interface AnimalService {
 	
 	public String butterFlyMetamorphosisProcess(Animal animal) throws AnimalException;
 	
+	public String countAnimalProperties(String propertyType) throws AnimalException;
+	
 }

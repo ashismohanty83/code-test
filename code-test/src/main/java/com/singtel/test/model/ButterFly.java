@@ -1,5 +1,7 @@
 package com.singtel.test.model;
 
+import com.singtel.test.constant.AnimalType;
+
 public class ButterFly extends Animal {
 	
 	//To Check initially The butterfly condition as it is in stage of Caterpillar 
@@ -13,6 +15,7 @@ public class ButterFly extends Animal {
 	
 	public ButterFly(String name) {
 		super(name);
+		setName(isButterFly ? AnimalType.BUTTERFLY.name() : AnimalType.CATEROILLAR.name());
 	}
 	
 	public ButterFly metamorphosisProcess() {

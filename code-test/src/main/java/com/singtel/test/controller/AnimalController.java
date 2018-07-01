@@ -23,12 +23,7 @@ public class AnimalController {
 			@RequestParam(value = "liveWith", required=false) String liveWithAnimal) throws Exception {
 		
 		Animal animal = animalService.getAnimalDetails(animalType.toUpperCase(), liveWithAnimal);
-		String jsonInString = "";
 		if (null != animal) {
-			/*ObjectMapper mapper = new ObjectMapper();
-			//Object to JSON in String
-			jsonInString = mapper.writeValueAsString(details);*/
-			
 			return animal.toString();
 		}
 		
@@ -42,17 +37,17 @@ public class AnimalController {
 			@RequestParam(value = "age", required=true) int age) throws Exception {
 		
 		Animal animal = animalService.getChickenRooster(animalType, gender, age);
-		String jsonInString = "";
 		if (null != animal) {
 			return animal.toString();
 		}
 		
-		return null;
+		return "Error while getting Rooster entity from chicken";
 	}
 	
 	@RequestMapping(value = "/butterflyMetamorphosis", method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public String butterflyMetamorphosis(@RequestParam(value = "animalType", required=true) String animalType) throws Exception {
+	public String butterflyMetamorphosis(@RequestParam(value = "animalType", required=true) 
+									String animalType) throws Exception {
 		
 		Animal animal = animalService.getAnimalDetails(animalType, null);
 		
@@ -61,6 +56,22 @@ public class AnimalController {
 		}
 				
 		return "Error in metamorphosis process from Caterpillar to Butterfly";
+	}
+	
+	/*
+	 * propertyType request param
+	 * FLY,SWIM,WALK,SING
+	 * 
+	 * 
+	 **/
+	
+	@RequestMapping(value = "/getAnimalCountByProperty", method = RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public String getAnimalCountByProperty(@RequestParam(value = "propertyType", required=true) 
+						String propertyType) throws Exception {
+		
+		return animalService.countAnimalProperties(propertyType);
+		
 	}
 
 }

@@ -8,6 +8,9 @@ public class Chicken extends Bird {
 
 	public Chicken(String name) {
 		super(name);
+		if ("ROOSTER".equalsIgnoreCase(name)) {
+			setChickenProperties("MALE", 13); //Set Rooster properties
+		}
 	}
 
 	@Override
@@ -46,8 +49,12 @@ public class Chicken extends Bird {
 
 	@Override
 	public boolean swim() {
-		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	@Override
+	public boolean walk() {
+		return true;
 	}
 
 	@Override

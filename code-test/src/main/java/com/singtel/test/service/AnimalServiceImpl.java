@@ -2,12 +2,20 @@ package com.singtel.test.service;
 
 import org.springframework.stereotype.Service;
 
+import com.singtel.test.constant.AnimalPropertyType;
+import com.singtel.test.constant.AnimalType;
 import com.singtel.test.exception.AnimalException;
 import com.singtel.test.model.Animal;
 import com.singtel.test.model.AnimalFactory;
 import com.singtel.test.model.ButterFly;
+import com.singtel.test.model.Cat;
 import com.singtel.test.model.Chicken;
+import com.singtel.test.model.Clownfish;
+import com.singtel.test.model.Dog;
+import com.singtel.test.model.Dolphin;
+import com.singtel.test.model.Duck;
 import com.singtel.test.model.Parrot;
+import com.singtel.test.model.Shark;
 
 /**
  * @author Ashis
@@ -17,6 +25,20 @@ import com.singtel.test.model.Parrot;
  */
 @Service
 public class AnimalServiceImpl implements AnimalService {
+	
+	private static final Animal[] animalArr = new Animal[] {
+			
+			new Duck(AnimalType.DUCK.name()),
+			new Chicken(AnimalType.CHICKEN.name()),
+			new Chicken(AnimalType.ROOSTER.name()),
+			new Parrot(AnimalType.PARROT.name(), new Chicken(AnimalType.ROOSTER.name()).sing()),
+			new Shark(AnimalType.SHARK.name()),
+			new Clownfish(AnimalType.CLOWNFISH.name()),
+			new Dolphin(AnimalType.DOLPHIN.name()),
+			new Dog(AnimalType.DOG.name()),
+			new ButterFly(AnimalType.BUTTERFLY.name()),
+			new Cat(AnimalType.CAT.name())
+	};
 
 	/* (non-Javadoc)
 	 * @see com.singtel.test.service.AnimalService#getAnimalDetails(java.lang.String)
@@ -97,6 +119,54 @@ public class AnimalServiceImpl implements AnimalService {
 			}
 			
 			return butterfly.toString();
+		}
+	}
+	
+	public String countAnimalProperties(String propertyType) throws AnimalException  {
+		
+		int count = 0;
+		StringBuffer buffer = new StringBuffer(" [");
+		
+		if (null != propertyType && !propertyType.isEmpty()) {
+			
+			for (Animal animal : animalArr) {
+				
+				if (AnimalPropertyType.FLY.name().equalsIgnoreCase(propertyType)) {
+					
+					if (animal.fly()) {
+						++count;
+						buffer.append(animal.getName()).append(",");
+					}
+					
+				} else if (AnimalPropertyType.WALK.name().equalsIgnoreCase(propertyType)) {
+					
+					if (animal.walk()) {
+						++count;
+						buffer.append(animal.getName()).append(",");
+					}
+					
+				} else if (AnimalPropertyType.SWIM.name().equalsIgnoreCase(propertyType)) {
+					
+					if (animal.swim()) {
+						++count;
+						buffer.append(animal.getName()).append(",");
+					}
+					
+				} else if (AnimalPropertyType.SING.name().equalsIgnoreCase(propertyType)) {
+					
+					if (null != animal.sing() && !animal.sing().isEmpty()) {
+						++count;
+						buffer.append(animal.getName()).append(",");
+					}
+				}
+				
+			}
+			buffer.setLength(buffer.length() - 1);
+			buffer.append("]");
+			return "Animals Can " + propertyType.toUpperCase() + " : " + count + buffer.toString();
+			
+		} else {
+			return "Invalid Animal PropertyType";
 		}
 	}
 }

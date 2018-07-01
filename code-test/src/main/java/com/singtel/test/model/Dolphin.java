@@ -20,6 +20,11 @@ public class Dolphin extends Animal {
 	public boolean swim() {
 		return true;
 	}
+	
+	@Override
+	public boolean walk() {
+		return false;
+	}
 
 	@Override
 	public String toString() {

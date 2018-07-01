@@ -22,6 +22,11 @@ public class Duck extends Bird {
 		System.out.println("I can swim");
 		return true;
 	}
+	
+	@Override
+	public boolean walk() {
+		return true;
+	}
 
 	@Override
 	public String toString() {

@@ -26,7 +26,6 @@ public class Fish extends Animal {
 	
 	@Override
 	public boolean walk() {
-		System.out.println("I cant walkss");
 		return false;
 	}
 	

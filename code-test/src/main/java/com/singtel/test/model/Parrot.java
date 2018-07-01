@@ -45,6 +45,11 @@ public class Parrot extends Bird {
 	public boolean swim() {
 		return false;
 	}
+	
+	@Override
+	public boolean walk() {
+		return false;
+	}
 
 	public String getFrequentSound() {
 		return frequentSound;
