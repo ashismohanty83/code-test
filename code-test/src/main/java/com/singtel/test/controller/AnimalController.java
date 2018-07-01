@@ -49,5 +49,18 @@ public class AnimalController {
 		
 		return null;
 	}
+	
+	@RequestMapping(value = "/butterflyMetamorphosis", method = RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public String butterflyMetamorphosis(@RequestParam(value = "animalType", required=true) String animalType) throws Exception {
+		
+		Animal animal = animalService.getAnimalDetails(animalType, null);
+		
+		if (null != animal) {
+			return animalService.butterFlyMetamorphosisProcess(animal);
+		}
+				
+		return "Error in metamorphosis process from Caterpillar to Butterfly";
+	}
 
 }

@@ -1,8 +1,8 @@
 package com.singtel.test.model;
 
-public class Dolphins extends Animal {
+public class Dolphin extends Animal {
 
-	public Dolphins(String name) {
+	public Dolphin(String name) {
 		super(name);
 	}
 
@@ -23,7 +23,7 @@ public class Dolphins extends Animal {
 
 	@Override
 	public String toString() {
-		return "Dolphins [sing()=" + sing() + ", fly()=" + fly() + ", swim()=" + swim() + ", getName()=" + getName()
+		return "Dolphin [sing()=" + sing() + ", fly()=" + fly() + ", swim()=" + swim() + ", getName()=" + getName()
 				+ ", walk()=" + walk()+ "]";
 	}
 }

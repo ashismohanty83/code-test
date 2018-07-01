@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.singtel.test.exception.AnimalException;
 import com.singtel.test.model.Animal;
 import com.singtel.test.model.AnimalFactory;
+import com.singtel.test.model.ButterFly;
 import com.singtel.test.model.Chicken;
 import com.singtel.test.model.Parrot;
 
@@ -30,7 +31,7 @@ public class AnimalServiceImpl implements AnimalService {
 		if (null != animal) {
 			if (animal instanceof Parrot) {
 				Parrot parrot = (Parrot) animal;
-				if (!liveWithAnimal.isEmpty()) {
+				if (null != liveWithAnimal && !liveWithAnimal.isEmpty()) {
 					Animal leavingWithAnimal = factory.getAnimal(liveWithAnimal);
 					if (null != leavingWithAnimal) {
 						parrot.setAnimalLiveWith(leavingWithAnimal);
@@ -42,6 +43,12 @@ public class AnimalServiceImpl implements AnimalService {
 				}
 				
 				return parrot;
+			} if(animal instanceof ButterFly) {
+				ButterFly butterfly = (ButterFly) animal;
+				if (!butterfly.isButterFly) {
+					butterfly.setName("CATERPILLAR");
+				}
+				return butterfly;
 			} else {
 				return animal;
 			}
@@ -76,5 +83,20 @@ public class AnimalServiceImpl implements AnimalService {
 		
 		return animal;
 		
+	}
+	
+	public String butterFlyMetamorphosisProcess(Animal animal) throws AnimalException {
+		
+		if (null == animal) {
+			throw new AnimalException("Provide the proper animal details");
+		} else {
+			ButterFly butterfly = (ButterFly) animal;
+			if (!butterfly.isButterFly) {
+				butterfly = butterfly.metamorphosisProcess();
+				butterfly.setName("BUTTERFLY");
+			}
+			
+			return butterfly.toString();
+		}
 	}
 }
