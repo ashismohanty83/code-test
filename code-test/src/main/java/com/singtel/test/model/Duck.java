@@ -34,5 +34,4 @@ public class Duck extends Bird {
 				+ ", walk()=" + walk()+ "]";
 	}
 	
-	
 }

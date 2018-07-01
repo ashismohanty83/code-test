@@ -15,7 +15,7 @@ public class ButterFly extends Animal {
 	
 	public ButterFly(String name) {
 		super(name);
-		setName(isButterFly ? AnimalType.BUTTERFLY.name() : AnimalType.CATEROILLAR.name());
+		setName(isButterFly ? AnimalType.BUTTERFLY.name() : AnimalType.CATERPILLAR.name());
 	}
 	
 	public ButterFly metamorphosisProcess() {
@@ -52,6 +52,7 @@ public class ButterFly extends Animal {
 					isButterFly = true;
 					fly();
 					walk();
+					setName(AnimalType.BUTTERFLY.name());
 				}
 				
 				daysSpent++;
